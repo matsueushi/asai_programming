@@ -6,6 +6,6 @@ let abs_value x =
  
 
 (* テスト *)
-let test1 = abs_value 2.8 = 2.8
+let test1 = abs_value    2.8 = 2.8
 let test2 = abs_value (-2.8) = 2.8
-let test3 = abs_value 0.0 = 0.0
+let test3 = abs_value    0.0 = 0.0

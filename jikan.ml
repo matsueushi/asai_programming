@@ -5,6 +5,6 @@ let jikan x =
               else "午後"
 
 (* テスト *)
-let test1 = jikan 6 = "午前"
+let test1 = jikan  6 = "午前"
 let test2 = jikan 12 = "午後"
 let test3 = jikan 18 = "午後"

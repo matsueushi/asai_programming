@@ -3,8 +3,8 @@
 let tsuru_no_ashi x = 2 * x
 
 (* テスト *)
-let tsuru_no_ashi_test1 = tsuru_no_ashi 0 = 0
-let tsuru_no_ashi_test2 = tsuru_no_ashi 5 = 10
+let tsuru_no_ashi_test1 = tsuru_no_ashi  0 = 0
+let tsuru_no_ashi_test2 = tsuru_no_ashi  5 = 10
 let tsuru_no_ashi_test3 = tsuru_no_ashi 13 = 26
 
 
@@ -13,8 +13,8 @@ let tsuru_no_ashi_test3 = tsuru_no_ashi 13 = 26
 let kame_no_ashi x = 4 * x
 
 (* テスト *)
-let kame_no_ashi_test1 = kame_no_ashi 0 = 0
-let kame_no_ashi_test2 = kame_no_ashi 4 = 16
+let kame_no_ashi_test1 = kame_no_ashi  0 = 0
+let kame_no_ashi_test2 = kame_no_ashi  4 = 16
 let kame_no_ashi_test3 = kame_no_ashi 10 = 40
 
 
