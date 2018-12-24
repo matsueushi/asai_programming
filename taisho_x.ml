@@ -1,7 +1,7 @@
-(* x 座標 と y 座標のの組みで表された平面座標 zahyo を受け取ったら、 *)
-(* x 軸に関して対象な点の座標を返す                               *)
+(* 目的 : x 座標 と y 座標のの組みで表された平面座標 point を受け取ったら、 *)
+(*       x 軸に関して対象な点の座標を返す                               *)
 (* taisho_x : float * float -> float * float *)
-let taisho_x zahyo = match zahyo with
+let taisho_x point = match pointwith
     (x, y) -> (-.x, y)
 
 (* テスト *)
