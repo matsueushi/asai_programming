@@ -10,7 +10,7 @@ let goukei_test2 = goukei 100 100 100 100 100 = 500
 let goukei_test3 = goukei  80  85  90  95  91 = 441
 
 
-(* goukei_to_heikin : int -> int -> int -> int -> int -> int * float *)
+(* 目的 : 国語 kokugo, 数学 suugaku, 英語 eigo, 理科 rika, 社会 shakai *)
 (*       の5教科の点数を与えられたら、その合計点と平均点を組みにして返す     *)
 (* goukei_to_heikin : int -> int -> int -> int -> int -> int * int *)
 let goukei_to_heikin kokugo suugaku eigo rika shakai =
