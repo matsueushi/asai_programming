@@ -26,7 +26,7 @@ let person2 = {
     blood = "O";
 }
 
-let person2 = {
+let person3 = {
     name = "Kojima";
     height = 1.7;
     weight = 50.0;
