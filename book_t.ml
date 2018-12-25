@@ -7,7 +7,7 @@ type book_t = {
     isbn : string;      (* ISBN *)
 }
 
-let book1 book_t = {
+let book1 = {
     title = "Abstract logo";
     author = "Leterme Dowling";
     publisher = "Counter-Print";
@@ -15,7 +15,7 @@ let book1 book_t = {
     isbn = "978-0-9935812-0-5";
 }
 
-let book2 book_t = {
+let book2 = {
     title = "The Art of Readable Code";
     author = "Dustin Boswell and Trevor Foucher";
     publisher = "O'Reilly";
@@ -23,7 +23,7 @@ let book2 book_t = {
     isbn = "978-0-596-80229-5";
 }
 
-let book3 book_t = {
+let book3 = {
     title = "R.Cruml's Dream Diary";
     author = "Robert Crumb";
     publisher = "Elara Press";
