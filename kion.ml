@@ -14,8 +14,8 @@ let test5 = kaiteki 28 = false
 (* 目的 : 現在の気温 t から快適度を表す文字列を計算する *)
 (* kion : int -> string *)
 let kion t = 
-    if kaiteki t then "快適" 
-                 else "普通"
+    if   kaiteki t then "快適" 
+    else                "普通"
 
 (* テスト *)
 let test1 = kion  7 = "普通"

@@ -13,9 +13,9 @@ let hanbetsusihki_test3 = hanbetsushiki (-1.0) 2.0 (-1.0) =   0.0
 (*       を与えられたら、解の個数を返す                                   *)
 (* kai_no_kosuu : float -> float -> float -> int *)
 let kai_no_kosuu a b c = 
-    if hanbetsushiki a b c < 0.0 then 0
-                                 else if hanbetsushiki a b c = 0.0 then 1
-                                                                   else 2
+    if      hanbetsushiki a b c < 0.0 then 0
+    else if hanbetsushiki a b c = 0.0 then 1
+    else                                   2
 
 (* テスト *)
 let kai_no_kosuu_test1 = kai_no_kosuu   1.0   0.0   1.0   = 0

@@ -14,10 +14,10 @@ let bmi_test5 = bmi 1.8  113.4   = 35.0
 (*       数値によって体形を返す                           *)
 (* taikei : float -> float -> string *)
 let taikei m kg = 
-    if bmi m kg < 18.5 then "やせ"
-                       else if bmi m kg < 25.0 then "標準"
-                                               else if bmi m kg < 30.0 then "肥満"
-                                                                       else "高度肥満"
+    if      bmi m kg < 18.5 then "やせ"
+    else if bmi m kg < 25.0 then "標準"
+    else if bmi m kg < 30.0 then "肥満"
+    else                         "高度肥満"
 
 (* テスト *)
 let taikei_test1 = taikei 2.0   80.0   = "標準"
