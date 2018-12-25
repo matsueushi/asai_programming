@@ -17,10 +17,11 @@ let lst4 = [{name = "yoshida"; score = 80; grade = "A"};
 
 (* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
 (* count_A : gakusei_t list -> int *)
-let count_A lst = match lst with
+let rec count_A lst = match lst with
     [] -> 0
     | {name = n; score = s; grade = g} :: rest  
-                        -> 0 (* count_A rest *) 
+        -> if g = "A" then 1 + count_A rest
+                      else count_A rest
 
 (* テスト *)
 let test1 = count_A lst1 = 0

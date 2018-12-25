@@ -34,3 +34,21 @@ let person3 = {
     day = 30;
     blood = "B";
 }
+
+let person4 = {
+    name = "Ogawa";
+    height = 1.9;
+    weight = 75.3;
+    month = 2;
+    day = 23;
+    blood = "A";
+}
+
+let person5 = {
+    name = "Ishikawa";
+    height = 1.55;
+    weight = 43.9;
+    month = 6;
+    day = 18;
+    blood = "A"
+}
