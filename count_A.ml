@@ -19,9 +19,8 @@ let lst4 = [{name = "yoshida"; score = 80; grade = "A"};
 (* count_A : gakusei_t list -> int *)
 let count_A lst = match lst with
     [] -> 0
-    | first :: rest -> (match first with 
-                        {name = n; score = s; grade = g}
-                        -> 0 (* count_A rest *) )
+    | {name = n; score = s; grade = g} :: rest  
+                        -> 0 (* count_A rest *) 
 
 (* テスト *)
 let test1 = count_A lst1 = 0
