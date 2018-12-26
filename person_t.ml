@@ -31,7 +31,7 @@ let person3 = {
     height = 1.7;
     weight = 50.0;
     month = 9;
-    day = 30;
+    day = 21;
     blood = "B";
 }
 
@@ -39,7 +39,7 @@ let person4 = {
     name = "Ogawa";
     height = 1.9;
     weight = 75.3;
-    month = 2;
+    month = 8;
     day = 23;
     blood = "A";
 }
@@ -52,3 +52,12 @@ let person5 = {
     day = 18;
     blood = "A"
 }
+
+
+let lst1 = []
+let lst2 = [person1]
+let lst3 = [person4]
+let lst4 = [person1; person2; person3]
+let lst5 = [person3; person5]
+let lst6 = [person1; person2; person4; person5]
+let lst7 = [person1; person2; person3; person4; person5]
