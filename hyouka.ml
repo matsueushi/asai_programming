@@ -1,9 +1,4 @@
-(* 学生一人分のデータ (名前, 点数, 成績) を表す型 *)
-type gakusei_t = {
-    name : string;      (* 名前 *)
-    score : int;        (* 点数 *)
-    grade : string;     (* 成績 *)
-}
+#use "gakusei_t.ml"
 
 (* 目的 : 学生のデータ gakusei を受け取り成績のついたデータを返す *)
 (* hyouka : gakusei_t -> gakusei_t *)
