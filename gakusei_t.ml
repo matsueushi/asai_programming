@@ -5,11 +5,13 @@ type gakusei_t = {
     grade : string; (* 成績 *)
 }
 
+(* gakusei_t 型のデータの例 *) 
+let gakusei1 = {name = "asai"; score = 70; grade = "B"} 
+let gakusei2 = {name = "kaneko"; score = 85; grade = "A"}
+let gakusei3 = {name = "yoshida"; score = 80; grade = "A"}
+
 (* gakusei_t list 型のデータの例 *)
 let lst1 = []
-let lst2 = [{name = "asai"; score = 70; grade = "B"}]
-let lst3 = [{name = "asai"; score = 70; grade = "B"};
-            {name = "kaneko"; score = 85; grade = "A"}]
-let lst4 = [{name = "yoshida"; score = 80; grade = "A"};
-            {name = "asai"; score = 70; grade = "B"};
-            {name = "kaneko"; score = 85; grade = "A"}]
+let lst2 = [gakusei1]
+let lst3 = [gakusei1; gakusei2]
+let lst4 = [gakusei3; gakusei1; gakusei2]
