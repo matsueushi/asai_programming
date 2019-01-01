@@ -6,9 +6,9 @@
 (* gakusei_insert : gakusei_t list -> gakusei_t -> gakusei_t list *)
 let rec gakusei_insert lst gakusei = match lst with
     [] -> [gakusei]
-    | ({name = n; score = s; grade = g} as first) :: rest -> (match gakusei with
-            {name = n0; score = s0; grade = g0} -> if s0 < s then gakusei :: first :: rest
-                                                             else first :: gakusei_insert rest gakusei)
+    | ({name = n0; score = s0; grade = g0} as first) :: rest -> (match gakusei with
+            {name = n; score = s; grade = g} -> if s < s0 then gakusei :: first :: rest
+                                                else first :: gakusei_insert rest gakusei)
 
 (* テスト *)
 let gakusei_insert_test1 = gakusei_insert [] gakusei1 = [gakusei1]
