@@ -4,9 +4,10 @@
 let rec gakusei_max lst = match lst with
     [] -> {name = ""; score = 0; grade = ""}
     | ({name = n0; score = s0; grade = g0}) as first :: rest ->
-            match gakusei_max rest with
+            let max_rest = gakusei_max rest in
+            match max_rest with
                 {name = n; score = s; grade = g} ->
-                    if s0 <= s then gakusei_max rest
+                    if s0 <= s then max_rest 
                     else first
 
 (* テスト *)

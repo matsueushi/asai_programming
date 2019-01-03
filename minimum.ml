@@ -2,9 +2,10 @@
 (* minimum : int list -> int *)
 let rec minimum lst = match lst with
     [] -> max_int 
-    | first :: rest -> 
-        if first <= minimum rest then first
-        else minimum rest
+    | first :: rest ->
+        let min_rest = minimum rest in 
+        if first <= min_rest then first
+        else min_rest 
 
 (* テスト *)
 let test1 = minimum [3] = 3
