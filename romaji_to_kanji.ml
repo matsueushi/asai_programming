@@ -1,4 +1,4 @@
-#use "metro.ml"
+#use "ekimei_t.ml"
 
 (* 目的 : ローマ字の駅名と駅名リスト (ekimei_t list 型) を受け取ったら、 *)
 (*       その駅の漢字表記を文字列で返す                               *)
