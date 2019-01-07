@@ -2,11 +2,20 @@
 
 (* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
 (* count_A : gakusei_t list -> int *)
-let rec count_A lst = match lst with
+(* Section 9.6 version *)
+(* let rec count_A lst = match lst with
     [] -> 0
     | {name = n; score = s; grade = g} :: rest  
         -> if g = "A" then 1 + count_A rest
-                      else count_A rest
+                      else count_A rest *)
+
+(* Ex 14.2 version *)
+(* 目的 : gakusei_t 型の gakusei の成績が A かどうかを返す *)
+let is_seiseki_A gakusei = match gakusei with
+    {name = n; score = s; grade = g} -> g = "A" 
+
+let count_A lst = List.length (List.filter is_seiseki_A lst)
+
 
 (* テスト *)
 let test1 = count_A lst1 = 0
