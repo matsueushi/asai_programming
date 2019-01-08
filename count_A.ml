@@ -1,5 +1,7 @@
 #use "gakusei_t.ml"
 
+(* Section 9.6 version *) 
+
 (* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
 (* count_A : gakusei_t list -> int *)
 (* Section 9.6 version *)
@@ -9,15 +11,27 @@
         -> if g = "A" then 1 + count_A rest
                       else count_A rest *)
 
+
 (* Ex 14.2 version *)
+
 (* 目的 : gakusei_t 型の gakusei の成績が A かどうかを返す *)
-let is_seiseki_A gakusei = match gakusei with
-    {name = n; score = s; grade = g} -> g = "A" 
+(* let is_seiseki_A gakusei = match gakusei with
+    {name = n; score = s; grade = g} -> g = "A"  *)
 
 (* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
 (* count_A : gakusei_t list -> int *)
-let count_A lst = List.length (List.filter is_seiseki_A lst)
+(* let count_A lst = List.length (List.filter is_seiseki_A lst) *)
 
+
+(* Ex 14.5 version *)
+
+(* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
+(* count_A : gakusei_t list -> int *)
+let count_A lst =
+    (* 目的 : gakusei_t 型の gakusei の成績が A かどうかを返す *)
+    let is_seiseki_A gakusei = match gakusei with
+        {name = n; score = s; grade = g} -> g = "A" in 
+            List.length (List.filter is_seiseki_A lst)
 
 (* テスト *)
 let test1 = count_A lst1 = 0
