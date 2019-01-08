@@ -11,18 +11,18 @@
 
 (* Ex 13.7 version *)
 
-#use "eki_t.ml"
-#use "get_ekikan_kyori.ml"
+(* #use "eki_t.ml"
+#use "get_ekikan_kyori.ml" *)
 
 (* 目的 : 直前に確定した駅 p (eki_t 型) と未確定の駅のリスト v (eki_t list 型)  *)
 (*       を受け取ったら、必要な更新処理を行った後の未確定の駅のリストを返す         *)
 (* koushin : eki_t -> eki_t list -> eki_t list *)
-let koushin eki lst =
+(* let koushin eki lst = *)
     (* 目的 : 直前に確定した駅 p (eki_t 型) と未確定の駅 q (eki_ t 型) を受け取り、   *)
     (*        p と q が直接繋がっているかどうかを調べ、繋がっていたら q の最短距離と手前 *)
     (*        リストを必要に応じて更新したものを返し、繋がっていなければ元の q を返す    *)
     (* koushin1 : eki_t -> eki_t -> eki_t *)
-    let koushin1 p q = 
+    (* let koushin1 p q = 
         match p with {namae = n_p; saitan_kyori = s_p; temae_list = t_p} ->
         match q with {namae = n_q; saitan_kyori = s_q; temae_list = t_q} ->
         let ekikan = get_ekikan_kyori n_p n_q global_ekikan_list in
@@ -30,7 +30,28 @@ let koushin eki lst =
             else if s_p +. ekikan < s_q then 
                 {namae = n_q; saitan_kyori = s_p +. ekikan; temae_list = n_q :: t_p}
             else q
-    in let f x = koushin1 eki x in List.map f lst 
+    in let f x = koushin1 eki x in List.map f lst  *)
+
+
+(* Ex 14.13 version *)
+
+#use "eki_t.ml"
+#use "get_ekikan_kyori.ml"
+
+(* 目的 : 直前に確定した駅 p (eki_t 型) と未確定の駅のリスト lst (eki_t list 型)  *)
+(*       を受け取ったら、必要な更新処理を行った後の未確定の駅のリストを返す         *)
+(* koushin : eki_t -> eki_t list -> eki_t list *)
+let koushin p lst = match p with
+    {namae = n_p; saitan_kyori = s_p; temae_list = t_p} ->
+    List.map 
+    (fun q -> match q with 
+    {namae = n_q; saitan_kyori = s_q; temae_list = t_q} ->
+    let ekikan = get_ekikan_kyori n_p n_q global_ekikan_list in
+        if ekikan = infinity then q
+        else if s_p +. ekikan < s_q then
+            {namae = n_q; saitan_kyori = s_p +. ekikan; temae_list = n_q :: t_p}
+        else q)
+    lst
 
 (* テスト *)
 let test1 = koushin 
