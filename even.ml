@@ -13,21 +13,28 @@
 
 (* 目的 : 整数 n が偶数であるかどうかを調べる *)
 (* is_even : int -> bool *)
-let is_even n = n mod 2 = 0 
+(* let is_even n = n mod 2 = 0  *)
 
 (* 整数のリスト lst を受け取り、その中の偶数の要素のみを含むリストを返す *)
 (* even : int list -> int list *)
-let even lst = List.filter is_even lst
+(* let even lst = List.filter is_even lst *)
 
 
 (* Ex 14.5 version *)
 
 (* 整数のリスト lst を受け取り、その中の偶数の要素のみを含むリストを返す *)
 (* even : int list -> int list *)
-let even lst = 
+(* let even lst =  *)
     (* 目的 : 整数 n が偶数であるかどうかを調べる *)
     (* is_even : int -> bool *)
-    let is_even n = n mod 2 = 0 in List.filter is_even lst
+    (* let is_even n = n mod 2 = 0 in List.filter is_even lst *)
+
+
+(* Ex 14.10 version *)
+
+(* 整数のリスト lst を受け取り、その中の偶数の要素のみを含むリストを返す *)
+(* even : int list -> int list *)
+let even lst = List.filter (fun n -> n mod 2) lst
 
 (* テスト *)
 let test1 = even [] = []

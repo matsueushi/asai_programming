@@ -27,11 +27,23 @@
 
 (* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
 (* count_A : gakusei_t list -> int *)
-let count_A lst =
+(* let count_A lst = *)
     (* 目的 : gakusei_t 型の gakusei の成績が A かどうかを返す *)
-    let is_seiseki_A gakusei = match gakusei with
+    (* let is_seiseki_A gakusei = match gakusei with
         {name = n; score = s; grade = g} -> g = "A" in 
-            List.length (List.filter is_seiseki_A lst)
+            List.length (List.filter is_seiseki_A lst) *)
+
+
+(* Ex 14.10 version *)
+
+(* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
+(* count_A : gakusei_t list -> int *)
+let count_A lst =
+    List.length (
+        List.filter 
+        (fun gakusei -> 
+            match gakusei with {name = n; score = s; grade = g} -> g = "A")
+        lst)
 
 (* テスト *)
 let test1 = count_A lst1 = 0
