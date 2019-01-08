@@ -1,4 +1,4 @@
-#use "make_eki_list.ml"
+#use "eki_t.ml"
 
 (* Ex 12.3 version *)
 

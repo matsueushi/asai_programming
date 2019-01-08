@@ -13,7 +13,7 @@
         :: make_eki_list rest *)
 
 
-(* Ex 12.2 version *)
+(* Ex 14.11 version *)
 
 (* 目的 : ekimei_t 型のリストを受け取ったら、その駅名を使って eki_t 型のリストを作る *)
 (*       saitan_kyori フィールドは無限大、temae_list フィールドに空リストを入れる  *)
@@ -30,8 +30,8 @@ let test1 = make_eki_list [] = []
 let test2 = make_eki_list 
     [{kanji = "代々木上原"; kana = "よよぎうはら"; romaji = "yoyogiuehara"; shozoku = "千代田線"}]
     = [{namae = "代々木上原"; saitan_kyori = infinity; temae_list = []}]
-let test3 = make_eki_list [
-    {kanji = "代々木上原"; kana = "よよぎうえはら"; romaji = "yoyogiuehara"; shozoku = "千代田線"}; 
+let test3 = make_eki_list 
+    [{kanji = "代々木上原"; kana = "よよぎうえはら"; romaji = "yoyogiuehara"; shozoku = "千代田線"}; 
     {kanji = "代々木公園"; kana = "よよぎこうえん"; romaji = "yoyogikouen"; shozoku = "千代田線"}]
     = [{namae = "代々木上原"; saitan_kyori = infinity; temae_list = []};
        {namae = "代々木公園"; saitan_kyori = infinity; temae_list = []}]
