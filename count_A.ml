@@ -14,6 +14,8 @@
 let is_seiseki_A gakusei = match gakusei with
     {name = n; score = s; grade = g} -> g = "A" 
 
+(* 目的 : 学生リスト lst のうち成績が A の人の数を返す *)
+(* count_A : gakusei_t list -> int *)
 let count_A lst = List.length (List.filter is_seiseki_A lst)
 
 

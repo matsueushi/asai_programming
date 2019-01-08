@@ -11,6 +11,8 @@
 (* is_even : int -> bool *)
 let is_even n = n mod 2 = 0 
 
+(* 整数のリスト lst を受け取り、その中の偶数の要素のみを含むリストを返す *)
+(* even : int list -> int list *)
 let even lst = List.filter is_even lst
 
 
