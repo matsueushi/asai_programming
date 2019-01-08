@@ -1,17 +1,35 @@
 #use "make_eki_list.ml"
 
+(* Ex 12.3 version *)
+
 (* 目的 : eki_t 型のリストと起点(漢字の文字列)を受け取ったら、起点のみ *)
 (*       saitan_kyori は 0                                    *)
 (*       temae_list は始点の駅名のみからなるリスト                 *)
 (*       となっている eki_t 型のリストを返す                      *)
 (* shokika : eki_t list -> eki_t list *)
-let rec shokika lst kiten = match lst with 
+(* let rec shokika lst kiten = match lst with 
     [] -> []
     |{namae = n; saitan_kyori = s; temae_list = t} as first :: rest ->
         if kiten = n then
             {namae = n; saitan_kyori = 0.0; temae_list = [n]}
             :: shokika rest kiten
-        else first :: shokika rest kiten
+        else first :: shokika rest kiten *)
+
+
+(* Ex 14.11 version *)
+
+(* 目的 : eki_t 型のリストと起点(漢字の文字列)を受け取ったら、起点のみ *)
+(*       saitan_kyori は 0                                    *)
+(*       temae_list は始点の駅名のみからなるリスト                 *)
+(*       となっている eki_t 型のリストを返す                      *)
+(* shokika : eki_t list -> eki_t list *)
+let shokika lst kiten = 
+    List.map
+    (fun eki -> match eki with
+        {namae = n; saitan_kyori = s; temae_list = t} ->
+            if kiten = n then {namae = n; saitan_kyori = 0.0; temae_list = [n]}
+            else eki)
+    lst
 
 (* テスト *)
 let test1 = shokika [] "代々木上原" = []
