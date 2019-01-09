@@ -33,6 +33,18 @@
 
 (* Section 14.4 version *)
 
+(* #use "fold_right.ml" *)
+
+(* 目的 : 受け取ったリスト lst の各要素の和を求める *)
+(* sum : int list -> int *) 
+(* let sum lst =  *)
+    (* 目的 : first と rest_result を加える *)
+    (* add_int : int -> int -> int *)
+    (* fold_right (fun first rest_result -> first + rest_result) lst 0 *)
+
+
+(* Section 14.5 version *)
+
 #use "fold_right.ml"
 
 (* 目的 : 受け取ったリスト lst の各要素の和を求める *)
@@ -40,8 +52,8 @@
 let sum lst = 
     (* 目的 : first と rest_result を加える *)
     (* add_int : int -> int -> int *)
-    fold_right (fun first rest_result -> first + rest_result) lst 0
-
+    fold_right (+) lst 0
+    
 (* テスト *)
 let test1 = sum [] = 0
 let test2 = sum [2] = 2
