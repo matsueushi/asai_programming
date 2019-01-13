@@ -32,6 +32,7 @@ let rec dijkstra_main eki_lst ekikan_lst = match eki_lst with
         let updated_nokori = koushin saitan nokori ekikan_lst in
         saitan :: dijkstra_main updated_nokori ekikan_lst
 
+(* length of nokori = length of eki_lst - 1 より終了する *)
 
 (* テスト *)
 let sample_eki_list = [
