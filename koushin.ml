@@ -35,13 +35,13 @@
 
 (* Ex 14.13 version *)
 
-#use "eki_t.ml"
-#use "get_ekikan_kyori.ml"
+(* #use "eki_t.ml"
+#use "get_ekikan_kyori.ml" *)
 
 (* 目的 : 直前に確定した駅 p (eki_t 型) と未確定の駅のリスト lst (eki_t list 型)  *)
 (*       を受け取ったら、必要な更新処理を行った後の未確定の駅のリストを返す         *)
 (* koushin : eki_t -> eki_t list -> eki_t list *)
-let koushin p lst = match p with
+(* let koushin p lst = match p with
     {namae = n_p; saitan_kyori = s_p; temae_list = t_p} ->
     List.map 
     (fun q -> match q with 
@@ -51,14 +51,48 @@ let koushin p lst = match p with
         else if s_p +. ekikan < s_q then
             {namae = n_q; saitan_kyori = s_p +. ekikan; temae_list = n_q :: t_p}
         else q)
-    lst
+    lst *)
 
 (* テスト *)
-let test1 = koushin 
+(* let test1 = koushin 
     {namae = "代々木上原"; saitan_kyori = 0.0; temae_list = ["代々木上原"]} [] = []
 let test2 = koushin 
     {namae = "代々木上原"; saitan_kyori = 0.0; temae_list = ["代々木上原"]}
     [{namae = "代々木公園"; saitan_kyori = infinity; temae_list = []};
     {namae = "赤坂"; saitan_kyori = infinity; temae_list = []}]
+    = [{namae = "代々木公園"; saitan_kyori = 1.0; temae_list = ["代々木公園"; "代々木上原"]};
+    {namae = "赤坂"; saitan_kyori = infinity; temae_list = []}] *)
+
+
+(* Ex 16.3 version *)
+
+#use "eki_t.ml"
+#use "get_ekikan_kyori.ml"
+
+(* 目的 : 直前に確定した駅 p (eki_t 型) と未確定の駅のリスト lst (eki_t list 型)  *)
+(*       を受け取ったら、必要な更新処理を行った後の未確定の駅のリストを返す         *)
+(* koushin : eki_t -> eki_t list -> ekikan_t list -> eki_t list *)
+let koushin p lst ekikan_list = match p with
+    {namae = n_p; saitan_kyori = s_p; temae_list = t_p} ->
+    List.map 
+    (fun q -> match q with 
+    {namae = n_q; saitan_kyori = s_q; temae_list = t_q} ->
+    let ekikan = get_ekikan_kyori n_p n_q ekikan_list in
+        if ekikan = infinity then q
+        else if s_p +. ekikan < s_q then
+            {namae = n_q; saitan_kyori = s_p +. ekikan; temae_list = n_q :: t_p}
+        else q)
+    lst
+
+
+(* テスト *)
+let test1 = koushin 
+    {namae = "代々木上原"; saitan_kyori = 0.0; temae_list = ["代々木上原"]} 
+        [] global_ekikan_list = []
+let test2 = koushin 
+    {namae = "代々木上原"; saitan_kyori = 0.0; temae_list = ["代々木上原"]}
+    [{namae = "代々木公園"; saitan_kyori = infinity; temae_list = []};
+    {namae = "赤坂"; saitan_kyori = infinity; temae_list = []}]
+    global_ekikan_list
     = [{namae = "代々木公園"; saitan_kyori = 1.0; temae_list = ["代々木公園"; "代々木上原"]};
     {namae = "赤坂"; saitan_kyori = infinity; temae_list = []}]
