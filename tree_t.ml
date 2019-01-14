@@ -3,9 +3,15 @@
     - Empty     空の木
     - Leaf (n)  値が n の葉
     - Node (t1, n, t2) 左の木が t1, 値が n, 右の木が t2 である節 *)
-type tree_t = Empty                             (* 空の木 *)
+(* Section 17.3 version *)
+(* type tree_t = Empty                             (* 空の木 *)
             | Leaf of int                       (* 葉 *)
-            | Node of tree_t * int * tree_t     (* 節 *)
+            | Node of tree_t * int * tree_t     節 *)
+
+(* Section 17.5 version *)
+type 'a tree_t = Empty                                (* 空の木 *)
+               | Leaf of 'a                           (* 葉 *)
+               | Node of 'a tree_t * 'a * 'a tree_t   (* 節 *)
 
 
 (* 木の例 *)
