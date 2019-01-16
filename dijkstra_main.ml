@@ -89,8 +89,10 @@ let koushin p lst ekikan_tree = match p with
 (* dijkstra_main : eki_t list -> ekikan_t list -> eki_t list *)
 let rec dijkstra_main eki_lst ekikan_lst = match eki_lst with
     [] -> []
-    | first :: rest -> 
-        let (saitan, nokori) = saitan_wo_bunri eki_lst in
+    | first :: rest ->
+        (* let (saitan, nokori) = saitan_wo_bunri eki_lst in *)
+        (* Ex 17.16 *)
+        let (saitan, nokori) = saitan_wo_bunri first rest in
         let updated_nokori = koushin saitan nokori ekikan_lst in
         saitan :: dijkstra_main updated_nokori ekikan_lst
 
