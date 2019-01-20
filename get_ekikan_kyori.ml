@@ -74,13 +74,11 @@ let get_ekikan_kyori_test4 =
 #use "ekikan_t.ml"
 #use "inserts_ekikan.ml"
 
-(* 二つの駅が繋がっていなかったことを示す例外 *)
-exception Not_found
 
 (* 目的 :  漢字の駅名二つと ekikan_tree_t 型の気を受け取り、2 駅間の距離を返す *)
 (* get_ekikan_kyori : string -> string -> ekikan_tree_t -> float *)
 let rec get_ekikan_kyori eki1 eki2 tree = match tree with 
-    Empty -> raise Not_found 
+    Empty -> raise Not_found
     | Node (t1, eki, lst, t2) -> 
         if eki1 = eki then assoc eki2 lst  
         else if eki1 < eki then get_ekikan_kyori eki1 eki2 t1
