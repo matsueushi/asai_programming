@@ -23,5 +23,5 @@ let rec search tree k = match tree with
     Empty -> raise Not_found
     | Node (left, key, value, right) ->
         if k = key then value
-        else if k < key then search left key
+        else if k < key then search left k
         else search right k

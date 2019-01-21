@@ -70,25 +70,62 @@ let get_ekikan_kyori_test4 =
 
 
 (* Ex 18.4 version *)
-#use "assoc.ml"
+(* #use "assoc.ml"
 #use "ekikan_t.ml"
-#use "inserts_ekikan.ml"
+#use "inserts_ekikan.ml" *)
 
 
 (* 目的 :  漢字の駅名二つと ekikan_tree_t 型の気を受け取り、2 駅間の距離を返す *)
 (* get_ekikan_kyori : string -> string -> ekikan_tree_t -> float *)
-let rec get_ekikan_kyori eki1 eki2 tree = match tree with 
+(* let rec get_ekikan_kyori eki1 eki2 tree = match tree with 
     Empty -> raise Not_found
     | Node (t1, eki, lst, t2) -> 
         if eki1 = eki then assoc eki2 lst  
         else if eki1 < eki then get_ekikan_kyori eki1 eki2 t1
-        else get_ekikan_kyori eki1 eki2 t2 
+        else get_ekikan_kyori eki1 eki2 t2  *)
 
 (* テスト *)
-let global_ekikan_tree_t = inserts_ekikan Empty global_ekikan_list
+(* let global_ekikan_tree_t = inserts_ekikan Empty global_ekikan_list
 let get_ekikan_kyori_test1 = 
     get_ekikan_kyori "茗荷谷" "新大塚" global_ekikan_tree_t = 1.2
 let get_ekikan_kyori_test3 = 
     get_ekikan_kyori "新大塚" "茗荷谷" global_ekikan_tree_t = 1.2
 let get_ekikan_kyori_test4 = 
-    get_ekikan_kyori "広尾" "六本木" global_ekikan_tree_t = 1.7
+    get_ekikan_kyori "広尾" "六本木" global_ekikan_tree_t = 1.7 *)
+
+
+(* Ex 19.1 version *)
+#use "assoc.ml"
+#use "ekikan_t.ml"
+
+(* 目的 : eki1 が ekikan_tree 型の木 tree にあるか調べ、なければ追加する *)
+(*       その上で pair を eki1 の節のリストに加える                    *)
+let rec insert1 tree eki1 pair = 
+    let pair_list = 
+        try Tree.search tree eki1
+        with Not_found -> []
+    in Tree.insert tree eki1 (pair :: pair_list)
+
+(* 目的 : ekikan_tree 型の木と ekikan_t 型の駅間を受けとったら、その情報を挿入した木を返す *)
+(* insert_ekikan : ekikan_tree -> ekikan_t -> ekikan_tree *)
+let insert_ekikan tree ekikan = match ekikan with
+    {kiten = kiten; shuten = shuten; keiyu = keiyu; kyori = kyori; jikan = jikan}
+    -> let tree1 = insert1 tree kiten (shuten, kyori)
+       in insert1 tree1 shuten (kiten, kyori)
+
+(* 目的 :  漢字の駅名二つと ekikan_tree 型の気を受け取り、2 駅間の距離を返す *)
+(* get_ekikan_kyori : string -> string -> ekikan_tree -> float *)
+let get_ekikan_kyori eki1 eki2 tree =
+   try let lst = Tree.search tree eki1 in 
+        assoc eki2 lst
+    with Not_found -> raise Not_found
+
+(* テスト *)
+let global_ekikan_tree = List.fold_left insert_ekikan Tree.empty global_ekikan_list
+
+let get_ekikan_kyori_test1 = 
+    get_ekikan_kyori "茗荷谷" "新大塚" global_ekikan_tree = 1.2 
+let get_ekikan_kyori_test3 = 
+    get_ekikan_kyori "新大塚" "茗荷谷" global_ekikan_tree = 1.2
+let get_ekikan_kyori_test4 = 
+    get_ekikan_kyori "広尾" "六本木" global_ekikan_tree = 1.7

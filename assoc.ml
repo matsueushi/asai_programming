@@ -15,9 +15,6 @@ let test3 = assoc "池袋" [("新大阪", 1.2); ("後楽園", 1.8)] = infinity  
 
 (* Ex 18.3 version *)
 
-(* キーが見つからなかったことを示す例外 *)
-exception Not_found
-
 (* 目的 : 「駅名」と「駅名と距離の組のリスト」を受けとったら、その駅までの距離を返す *)
 (* assoc : 'a -> ('a * 'b) list -> 'b *)
 let rec assoc ekimei lst = match lst with
