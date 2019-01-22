@@ -122,3 +122,4 @@ let rb_tree4_right =
             )
         )
     )
+let rb_tree4 = Node (rb_tree4_left, "X", 2, Black, rb_tree4_right)
